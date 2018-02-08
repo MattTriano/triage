@@ -91,15 +91,16 @@ Pull requests should have the following things:
 .. _experiment module base: src/triage/experiments/__init__.py
 .. _experiment algorithm doc: docs/sources/experiments/algorithm.md
 
-* Unit tests. If the code is in a component, say Architect, 'src/triage/component/{component_name}' (e.g. `src/triage/component/architect`_), the tests are in 'src/tests/{component_name}_tests/' (e.g. `src/tests/architect_tests`_). See other tests in that directory for examples on how to write tests, especially those involving database access and fake data.
+- Unit tests. If the code is in a component, say Architect, 'src/triage/component/{component_name}' (e.g. `src/triage/component/architect`_), the tests are in 'src/tests/{component_name}_tests/' (e.g. `src/tests/architect_tests`_). See other tests in that directory for examples on how to write tests, especially those involving database access and fake data.
 
-* If the code adds or changes experiment configuration values:
-    * The `experiment validation`_  class should be updated. A best effort should be made to raise any issues with the experiment definition that can be caught before running the full experiment. This can involve checking values against whitelists, inspecting given database tables, or even running some version of given queries through an EXPLAIN command.
-    * The `example_experiment_config`_ should be updated with the new or changed experiment configuration, and instructions for using it.
-    * If the change breaks old experiment definitions, the experiment config version should be updated in both the `example experiment config`_ and `experiment module base`_
+- If the code adds or changes experiment configuration values:
+    - The `experiment validation`_  class should be updated. A best effort should be made to raise any issues with the experiment definition that can be caught before running the full experiment. This can involve checking values against whitelists, inspecting given database tables, or even running some version of given queries through an EXPLAIN command.
+    - The `example_experiment_config`_ should be updated with the new or changed experiment configuration, and instructions for using it.
+    - If the change breaks old experiment definitions, the experiment config version should be updated in both the `example experiment config`_ and `experiment module base`_
 
-* Documentation. To be more specific:
+- Documentation. To be more specific:
     - Functions should have docstrings
     - If a change adds or changes functionality for the Experiment, the `experiment algorithm doc`_ should be updated.
-* The pull request should work for Python 3.6.
+
+- The pull request should work for Python 3.6.
 
