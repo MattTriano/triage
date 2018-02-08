@@ -95,14 +95,14 @@ Pull requests should have the following things:
 
 - If the code adds or changes experiment configuration values:
 
-    * The `experiment validation`_  class should be updated. A best effort should be made to raise any issues with the experiment definition that can be caught before running the full experiment. This can involve checking values against whitelists, inspecting given database tables, or even running some version of given queries through an EXPLAIN command.
-    * The `example_experiment_config`_ should be updated with the new or changed experiment configuration, and instructions for using it.
-    * If the change breaks old experiment definitions, the experiment config version should be updated in both the `example experiment config`_ and `experiment module base`_
+    - The `experiment validation`_  class should be updated. A best effort should be made to raise any issues with the experiment definition that can be caught before running the full experiment. This can involve checking values against whitelists, inspecting given database tables, or even running some version of given queries through an EXPLAIN command.
+    - The `example_experiment_config`_ should be updated with the new or changed experiment configuration, and instructions for using it.
+    - If the change breaks old experiment definitions, the experiment config version should be updated in both the `example experiment config`_ and `experiment module base`_
 
 - Documentation. To be more specific:
 
-    * Functions should have docstrings
-    * If a change adds or changes functionality for the Experiment, the `experiment algorithm doc`_ should be updated.
+    - Functions should have docstrings
+    - If a change adds or changes functionality for the Experiment, the `experiment algorithm doc`_ should be updated.
 
 - The pull request should work for Python 3.6.
 
