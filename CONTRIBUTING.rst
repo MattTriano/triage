@@ -87,7 +87,7 @@ Pull requests should have the following things:
 * Unit tests. If the code is in a component, say Architect, 'src/triage/component/{component_name}' (e.g. src/triage/component/architect), the tests are in 'src/tests/{component_name}_tests/' (e.g. src/tests/architect_tests). See other tests in that directory for examples on how to write tests, especially those involving database access and fake data.
 
 * If the code adds or changes experiment configuration values:
-    * The experiment validation `src/triage/experiments/validate.py` class should be updated. A best effort should be made to raise any issues with the experiment definition that can be caught before running the full experiment. This can involve checking values against whitelists, inspecting given database tables, or even running some version of given queries through an EXPLAIN command.
+    * The experiment validation `src/triage/experiments/validate.py`_ class should be updated. A best effort should be made to raise any issues with the experiment definition that can be caught before running the full experiment. This can involve checking values against whitelists, inspecting given database tables, or even running some version of given queries through an EXPLAIN command.
     * The <example_experiment_config.yaml> should be updated with the new or changed experiment configuration, and instructions for using it.
     * If the change breaks old experiment definitions, the experiment config version should be updated in both <example_experiment_config.yaml> and <src/triage/experiments/__init__.py>
 
