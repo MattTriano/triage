@@ -23,17 +23,6 @@ If you are reporting a bug, please include:
 * Any details about your local setup that might be helpful in troubleshooting.
 * Detailed steps to reproduce the bug.
 
-Fix Bugs
-~~~~~~~~
-
-Look through the GitHub issues for bugs. Anything tagged with "bug"
-and "help wanted" is open to whoever wants to implement it.
-
-Implement Features
-~~~~~~~~~~~~~~~~~~
-
-Look through the GitHub issues for features. Anything tagged with "enhancement"
-and "help wanted" is open to whoever wants to implement it.
 
 Write Documentation
 ~~~~~~~~~~~~~~~~~~~
@@ -51,8 +40,6 @@ If you are proposing a feature:
 
 * Explain in detail how it would work.
 * Keep the scope as narrow as possible, to make it easier to implement.
-* Remember that this is a volunteer-driven project, and that contributions
-  are welcome :)
 
 Get Started!
 ------------
@@ -95,20 +82,15 @@ Ready to contribute? Here's how to set up `triage` for local development.
 Pull Request Guidelines
 -----------------------
 
-Before you submit a pull request, check that it meets these guidelines:
+Pull requests should have the following things:
+1. Unit tests. If the code is in a component, say Architect, 'src/triage/component/{component_name}' (e.g. <src/triage/component/architect>), the tests are in 'src/tests/{component_name}_tests/' (e.g. <src/tests/architect_tests>). See other tests in that directory for examples on how to write tests, especially those involving database access and fake data.
 
-1. The pull request should include tests.
-2. If the pull request adds functionality, the docs should be updated. Put
-   your new functionality into a function with a docstring, and add the
-   feature to the list in README.rst.
-3. The pull request should work for Python 2.6, 2.7, 3.3, 3.4 and 3.5, and for PyPy. Check
-   https://travis-ci.org/dssg/triage/pull_requests
-   and make sure that the tests pass for all supported Python versions.
+2. If the code adds or changes experiment configuration values:
+    - The experiment validation <src/triage/experiments/validate.py> class should be updated. A best effort should be made to raise any issues with the experiment definition that can be caught before running the full experiment. This can involve checking values against whitelists, inspecting given database tables, or even running some version of given queries through an EXPLAIN command.
+    - The <example_experiment_config.yaml> should be updated with the new or changed experiment configuration, and instructions for using it.
+    - If the change breaks old experiment definitions, the experiment config version should be updated in both <example_experiment_config.yaml> and <src/triage/experiments/__init__.py>
 
-Tips
-----
-
-To run a subset of tests::
-
-$ py.test tests.test_triage
-
+3. Documentation. To be more specific:
+    - Functions should have docstrings
+    - If a change adds or changes functionality for the Experiment, the `Experiment Algorithm doc<docs/sources/experiments/algorithm.md>` should be updated.
+4. The pull request should work for Python 3.6.
